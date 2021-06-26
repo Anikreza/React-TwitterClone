@@ -16,6 +16,9 @@ import { CgMoreO } from 'react-icons/cg';
 import { GrNotification }  from 'react-icons/gr';
 import { RiHome7Fill } from 'react-icons/ri';
 import { BsBookmark } from 'react-icons/bs';
+import {   BsThreeDots } from 'react-icons/bs';
+import a from './aa.jpg'
+import {Avatar} from '@material-ui/core'
 
 function Sidebar() {
   return (
@@ -29,12 +32,25 @@ function Sidebar() {
       <SidebarOption Icon={BsBookmark} text="Bookmarks" />
       <SidebarOption Icon={SubjectIcon } text="Lists" />
       <SidebarOption Icon={PermIdentityIcon} text="Profile" />
-      <SidebarOption Icon={CgMoreO} text="  More" />
+      <SidebarOption Icon={CgMoreO} text="  More" />    
 
       {/* Button -> Tweet */}
       <Button variant="outlined" className="sidebar__tweet" fullWidth>
         Tweet
       </Button>
+
+      <div className='sidebar-bottom'>
+        <h3> SeaHawk</h3>
+        <p1> @22ndSeaHawk</p1>
+      </div>
+      <div className='sidebar-bottom-image'>
+        
+        <Avatar src={a}/> 
+        
+        </div>
+        <div className='sidebar-bottom-ico'> 
+        <BsThreeDots size='20px'/>
+        </div>
     </div>
   );
 }
