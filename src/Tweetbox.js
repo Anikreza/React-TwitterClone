@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import './Tweetbox.css'
-import a from './aa.jpg'
+import a from './av.jpg'
 import {Avatar, Button} from '@material-ui/core'
 import { GrEmoji } from 'react-icons/gr';
 import { AiOutlineFileGif } from 'react-icons/ai';

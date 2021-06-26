@@ -16,3 +16,46 @@ body {
   color: red;
   height: 2em;
 }
+
+
+@media screen and (max-width: 600px) {
+  
+  .sidebar{
+    max-width: 10%;
+  }
+  .sidebarOption h2{
+    display: none;
+  }
+  .sidebarOption h3{
+    padding-left: 0px;
+    margin-left: -15px;
+  }
+  .right{
+    max-width: 8%;
+
+  }
+  .right-input{
+    min-width: 800%;
+  }
+  .right-container  {
+        text-align: center;
+        min-width: 800%;
+  }
+  .tweetbox-ico{
+  
+    opacity: 0;
+  }
+
+  .feed{
+    flex:8;
+    min-width: 90%;
+  }
+
+  .sidebar__tweet {
+    opacity:0;
+  }
+  .sidebar__twitterIcon {
+    margin-left: -10px;
+  }
+
+}

@@ -2,14 +2,9 @@ import React from "react";
 import "./Sidebar.css";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import SidebarOption from "./SidebarOption";
-import HomeIcon from "@material-ui/icons/Home";
-import SearchIcon from "@material-ui/icons/Search";
-import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import SubjectIcon from '@material-ui/icons/Subject';
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { Button } from "@material-ui/core";
 import { FiHash } from 'react-icons/fi';
 import { CgMoreO } from 'react-icons/cg';
@@ -17,7 +12,7 @@ import { GrNotification }  from 'react-icons/gr';
 import { RiHome7Fill } from 'react-icons/ri';
 import { BsBookmark } from 'react-icons/bs';
 import {   BsThreeDots } from 'react-icons/bs';
-import a from './aa.jpg'
+import a from './av.jpg'
 import {Avatar} from '@material-ui/core'
 
 function Sidebar() {
@@ -40,17 +35,14 @@ function Sidebar() {
       </Button>
 
       <div className='sidebar-bottom'>
-        <h3> SeaHawk</h3>
-        <p1> @22ndSeaHawk</p1>
-      </div>
-      <div className='sidebar-bottom-image'>
+      <Avatar src={a}/> 
+
+        <h4> ZainFariha<br/> <p1 className='sm'>@Zainfariha1</p1> </h4>
         
-        <Avatar src={a}/> 
         
-        </div>
-        <div className='sidebar-bottom-ico'> 
         <BsThreeDots size='20px'/>
-        </div>
+      </div>
+ 
     </div>
   );
 }

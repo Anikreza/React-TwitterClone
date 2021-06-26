@@ -22,7 +22,7 @@ function Post({displayname, username, verification, time, text, image, avatar}) 
                     <div className='post-header-text'>
                         <h3> {displayname}{" "} <span className="post__headerSpecial">
                              {verification &&< GoVerified className='post__badge'/>}
-                              {username} </span>
+                              {username} {time}</span>
                        </h3>
                     </div>
                     <div className='post-header-description'>

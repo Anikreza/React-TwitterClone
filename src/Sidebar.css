@@ -9,28 +9,22 @@
 
 .sidebar-bottom{
   display: flex;
-  flex-direction: column;
-  margin-left: 130px;
   border-radius: 30px;
   text-align: center;
-  margin-top: 50px;
-  margin-left: -20px;
+  margin-top: 65px;
+  margin-right: auto;
   min-width: 50%;
-}
-.sidebar-bottom-image{
-   position: absolute;
-   top:88%;
-   left:3%;
-}
-.sidebar-bottom-ico{
-  position: absolute;
-  top:90%;
-  left:17%;
-  opacity: 0.8;
+  max-height: 50px;
+  justify-content: space-evenly;
 }
 
+.sm{
+  font-weight: lighter;
+  font-size: 80%;
+}
 .sidebar-bottom:hover{
   background: var(--twitter-background);
+  cursor: pointer;
 }
 
 .sidebar__twitterIcon {
