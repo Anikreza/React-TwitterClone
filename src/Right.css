@@ -1,0 +1,35 @@
+.right{
+    flex:0.3;
+}
+
+
+.right-container{
+    margin-top: 15px;
+    margin-left: 20px;
+    padding: 20px;
+    background-color: #f5f8fa;
+    border-radius: 20px;
+}
+
+.right-container > h2 {
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+.right-input{
+    display: flex;
+    align-items: center;
+    background-color: var(--twitter-background);
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
+    
+}
+
+
+.right-input > input {
+    border-style:none;
+    width: 100%;
+    background-color: var(--twitter-background);
+  }
