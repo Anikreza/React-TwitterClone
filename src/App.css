@@ -12,13 +12,87 @@ body {
   padding: 0 10px;
 }
 
+.MODAL_STYLES{
+  position: fixed; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 50px;
+  z-Index: 1000;
+  min-height: 40%;
+  min-width: 40%;
+  border-radius: 5%;
+}
+
+.OVERLAY_STYLES{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-Color: rgba(44, 42, 42, 0.7);
+  z-Index: 1000;
+
+}
+.comment-modal-close{
+ cursor: pointer;
+ color:var(--twitter-color);
+ position:absolute;
+ top:-10%;
+}
+
+.comment-input > input{
+  margin-top: 10%;
+  border-radius: 20px;
+  min-width: 80%;
+  min-height: 40px;
+  max-height: 300px;
+  border-style: hidden;
+  font-size: 110%;
+  cursor: text;
+  
+}
+.btn{
+  border-radius: 30px;
+  min-height: 50px;
+  min-width: 80px;
+  position: absolute;
+  right:5%;
+  top:70%;
+  background-color: var(--twitter-color);
+  opacity:0.7;
+  font-weight: 800;
+  color:white;
+  border-style: hidden;
+}
+.combox{
+  border-radius: 20px;
+  font-weight: lighter;
+  font-family: cursive;
+  max-height: 40px;
+  min-width: 10px;
+  margin-left: 1%;
+}
+
+.combox p2{
+  color: var(--twitter-color);
+  font-weight: bolder;
+
+}
+
+.combox:hover{
+  max-height: 1000px;
+  min-width: 1000px;
+}
+
 .myreact-icons {
   color: red;
   height: 2em;
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   
   .sidebar{
     max-width: 10%;

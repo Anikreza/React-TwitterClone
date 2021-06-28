@@ -37,7 +37,7 @@ function Sidebar() {
       <div className='sidebar-bottom'>
       <Avatar src={a}/> 
 
-        <h4> ZainFariha<br/> <p1 className='sm'>@Zainfariha1</p1> </h4>
+        <h4>ZainFariha<br/> <p1 className='sm'>@ZainFariha1</p1> </h4>
         
         
         <BsThreeDots size='20px'/>

@@ -9,6 +9,11 @@
     padding: 10px;
     overflow: hidden;
   }
+  .comment{
+     display:flex;
+     flex-wrap: wrap;
+  }
+
 
   .post:hover{
     background-color: #e6ecf0;
@@ -26,6 +31,13 @@
     justify-content: space-between;
     margin-top: 20px;
   }
+
+  .post-footer p3{
+     margin-right: 18%;
+  }
+
+  
+  
   
   .post-header-description {
     margin-bottom: 10px;
