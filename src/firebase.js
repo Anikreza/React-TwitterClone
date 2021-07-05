@@ -1,4 +1,5 @@
 import firebase from "firebase";
+import "firebase/storage";
 
 
 const firebaseConfig = {
@@ -14,5 +15,7 @@ const firebaseConfig = {
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const db = firebaseApp.firestore();
+const storage = firebase.storage();
+const timestamp = firebase.firestore.FieldValue.serverTimestamp;
 
-export default db;
+export { storage, timestamp, db as default };

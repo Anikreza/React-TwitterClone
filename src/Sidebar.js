@@ -12,7 +12,7 @@ import { GrNotification }  from 'react-icons/gr';
 import { RiHome7Fill } from 'react-icons/ri';
 import { BsBookmark } from 'react-icons/bs';
 import {   BsThreeDots } from 'react-icons/bs';
-import a from './av.jpg'
+import a from './aa.jpg'
 import {Avatar} from '@material-ui/core'
 
 function Sidebar() {
@@ -37,7 +37,7 @@ function Sidebar() {
       <div className='sidebar-bottom'>
       <Avatar src={a}/> 
 
-        <h4>ZainFariha<br/> <p1 className='sm'>@ZainFariha1</p1> </h4>
+        <h4>Tanvir Reza Anik<br/> <p1 className='sm'>@TanvirRezaAnik1</p1> </h4>
         
         
         <BsThreeDots size='20px'/>

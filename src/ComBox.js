@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Modal from './Modal'
 import db from './firebase'
-import Comment from './Comment'
+import Comfeed from './Comfeed'
 import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 
 const ComBox = () => {
@@ -23,17 +23,14 @@ const ComBox = () => {
                <ChatBubbleOutlineIcon fontSize="small" onClick={() => setIsOpen(true)}/>
                  <Modal open={isOpen} onClose={() => setIsOpen(false)}>
                  <form className='comment-input'>
-                 <input 
-                  
+                 <input            
                   onChange ={e=>setComment(e.target.value)} 
                   placeholder="Tweet your reply"
                   type='text' />     
                   <button className='btn' onClick={postComment} > Reply </button>  
                   </form>                   
                 </Modal>
-                <div className='combox'>
-  
-                </div>
+ 
         </div>
         
     )

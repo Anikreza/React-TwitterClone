@@ -10,15 +10,24 @@ import PublishIcon from "@material-ui/icons/Publish";
 import { GoVerified } from 'react-icons/go';
 import Modal from './Modal'
 import Comfeed from './Comfeed'
-import db from './firebase'
+import db, { timestamp } from './firebase'
 
 
 function Post({displayname, username, verification, time, text, image, avatar, like}) {
    
     const [countera, setcountera]= useState(0); 
+    const [liked, isLiked]=useState(false)
 
     const counterhandlera = ()=>{
-       setcountera(countera+1);
+        isLiked(true); 
+        if(liked){
+            setcountera(countera-1);
+            isLiked(false)
+        }
+        else{
+            setcountera(countera+1);
+        }
+        
        
     }
     
@@ -32,6 +41,7 @@ function Post({displayname, username, verification, time, text, image, avatar, l
             image: image,
             verification: verification,
             text: text,
+            time:time,
             like:countera, 
         });
         setTweet(" ");
@@ -51,7 +61,7 @@ function Post({displayname, username, verification, time, text, image, avatar, l
                     <div className='post-header-text'>
                         <h3> {displayname}{" "} <span className="post__headerSpecial">
                              {verification &&< GoVerified className='post__badge'/>}
-                              {username} {time}</span>
+                              {username} {`. `}</span>
                        </h3>
                     </div>
                     <div className='post-header-description'>
@@ -61,17 +71,16 @@ function Post({displayname, username, verification, time, text, image, avatar, l
                  <img src={image}/>
                  <div className='post-footer'>
                  <Comfeed/> 
-                 <RepeatIcon onClick={postTweet}  fontSize="small" />
-                 <p3> </p3> 
-                 <FavoriteBorderIcon onClick={counterhandlera} fontSize="small" />
-                 <p3> {countera} </p3>
-                 <PublishIcon fontSize="small" /> 
-                 <p3> </p3>               
+                 <RepeatIcon onClick={postTweet}  fontSize="small" />        
+                 <FavoriteBorderIcon onClick={counterhandlera} fontSize="small" />           
+                 <PublishIcon fontSize="small" />                       
                  </div>
+                 <div className='move'><p3> {countera} </p3></div>
+                
             </div>
-
+           
         </div>
     )
 }
 
-export default Post
+export { Post as default };

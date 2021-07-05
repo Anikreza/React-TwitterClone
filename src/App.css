@@ -11,7 +11,11 @@ body {
   margin-right: auto;
   padding: 0 10px;
 }
-
+.move p3{
+  position: relative;
+  left:70%;
+  top:-110%;
+}
 .MODAL_STYLES{
   position: fixed; 
   top: 50%;
@@ -81,10 +85,6 @@ body {
 
 }
 
-.combox:hover{
-  max-height: 1000px;
-  min-width: 1000px;
-}
 
 .myreact-icons {
   color: red;

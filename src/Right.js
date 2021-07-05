@@ -17,10 +17,11 @@ const Right = () => {
            <div className='right-container'>
                 
                 <h2>Trends for you</h2>
-                <TwitterTweetEmbed tweetId={"1399698641535832068"}/>
-
+               
+                
                 <TwitterTimelineEmbed sourceType='profile' screenName='KAKA' options={{height:300}} />
-                <TwitterTimelineEmbed sourceType='profile' screenName='shakira' options={{height:300}} />
+                <TwitterTimelineEmbed sourceType='profile' screenName='liverpoolfc' options={{height:300}} />
+                <TwitterTweetEmbed tweetId={"1399698641535832068"}/>
                 </div>
         </div>
     )

@@ -19,15 +19,8 @@ const Comfeed = () => {
         <div className='combox'>
 
           <ComBox />  
-                     
-          {comments.map((comment) => (
-          <Comment
-            key={comment.text}
-            text={comment.text} 
-            username={comment.username} 
-          />
-        ))}
-
+                   
+  
          
 
         </div>

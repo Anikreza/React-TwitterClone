@@ -2,12 +2,13 @@ import React, {useState, useEffect} from 'react'
 import './Feed.css'
 import Tweetbox from './Tweetbox'
 import Post from './Post'
-import Comment from './Comment'
+import Comfeed from './Comfeed'
 import a from './a.jpg'
 import aa from './aa.jpg'
 import z from './z.jpg'
 import zz from './zz.jpg'
-import db from './firebase'
+import db, {timestamp} from './firebase'
+import moment from 'moment'
 
 const Feed = () => {
 
@@ -28,9 +29,9 @@ const Feed = () => {
             <h2>Home </h2>
         </div>
          <Tweetbox/>
-
-      
-         {posts.map((post) => (
+        
+         
+         {posts.map((post) => 
           <Post
             key={post.text}
             displayname={post.displayname}
@@ -39,10 +40,12 @@ const Feed = () => {
             text={post.text}
             avatar={post.avatar}
             image={post.image}
-            time={'. 1m'}
+            time={post.time}
             like={post.like}
+            
           />
-        ))}
+          
+        )}
 
 
 
