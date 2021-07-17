@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/React-TwitterClone/static/css/main.8a97d22a.chunk.css",
-    "main.js": "/React-TwitterClone/static/js/main.59523dfa.chunk.js",
-    "main.js.map": "/React-TwitterClone/static/js/main.59523dfa.chunk.js.map",
+    "main.css": "/React-TwitterClone/static/css/main.3ce9203c.chunk.css",
+    "main.js": "/React-TwitterClone/static/js/main.dccb287d.chunk.js",
+    "main.js.map": "/React-TwitterClone/static/js/main.dccb287d.chunk.js.map",
     "runtime-main.js": "/React-TwitterClone/static/js/runtime-main.666c403b.js",
     "runtime-main.js.map": "/React-TwitterClone/static/js/runtime-main.666c403b.js.map",
-    "static/js/2.26b74c16.chunk.js": "/React-TwitterClone/static/js/2.26b74c16.chunk.js",
-    "static/js/2.26b74c16.chunk.js.map": "/React-TwitterClone/static/js/2.26b74c16.chunk.js.map",
+    "static/js/2.479eb186.chunk.js": "/React-TwitterClone/static/js/2.479eb186.chunk.js",
+    "static/js/2.479eb186.chunk.js.map": "/React-TwitterClone/static/js/2.479eb186.chunk.js.map",
     "static/js/3.460e37fb.chunk.js": "/React-TwitterClone/static/js/3.460e37fb.chunk.js",
     "static/js/3.460e37fb.chunk.js.map": "/React-TwitterClone/static/js/3.460e37fb.chunk.js.map",
     "index.html": "/React-TwitterClone/index.html",
-    "static/css/main.8a97d22a.chunk.css.map": "/React-TwitterClone/static/css/main.8a97d22a.chunk.css.map",
-    "static/js/2.26b74c16.chunk.js.LICENSE.txt": "/React-TwitterClone/static/js/2.26b74c16.chunk.js.LICENSE.txt",
+    "static/css/main.3ce9203c.chunk.css.map": "/React-TwitterClone/static/css/main.3ce9203c.chunk.css.map",
+    "static/js/2.479eb186.chunk.js.LICENSE.txt": "/React-TwitterClone/static/js/2.479eb186.chunk.js.LICENSE.txt",
     "static/media/a.2324b533.jpg": "/React-TwitterClone/static/media/a.2324b533.jpg",
-    "static/media/aa.368c59a9.jpg": "/React-TwitterClone/static/media/aa.368c59a9.jpg",
+    "static/media/aa.14327386.jpg": "/React-TwitterClone/static/media/aa.14327386.jpg",
     "static/media/av.10fee269.jpg": "/React-TwitterClone/static/media/av.10fee269.jpg",
     "static/media/z.675a4f18.jpg": "/React-TwitterClone/static/media/z.675a4f18.jpg",
     "static/media/zz.ec591909.jpg": "/React-TwitterClone/static/media/zz.ec591909.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.666c403b.js",
-    "static/js/2.26b74c16.chunk.js",
-    "static/css/main.8a97d22a.chunk.css",
-    "static/js/main.59523dfa.chunk.js"
+    "static/js/2.479eb186.chunk.js",
+    "static/css/main.3ce9203c.chunk.css",
+    "static/js/main.dccb287d.chunk.js"
   ]
 }
