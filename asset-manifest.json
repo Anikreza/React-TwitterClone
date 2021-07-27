@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/React-TwitterClone/static/css/main.275566a1.chunk.css",
-    "main.js": "/React-TwitterClone/static/js/main.81968bb8.chunk.js",
-    "main.js.map": "/React-TwitterClone/static/js/main.81968bb8.chunk.js.map",
-    "runtime-main.js": "/React-TwitterClone/static/js/runtime-main.1888f151.js",
-    "runtime-main.js.map": "/React-TwitterClone/static/js/runtime-main.1888f151.js.map",
-    "static/js/2.b13d9584.chunk.js": "/React-TwitterClone/static/js/2.b13d9584.chunk.js",
-    "static/js/2.b13d9584.chunk.js.map": "/React-TwitterClone/static/js/2.b13d9584.chunk.js.map",
-    "static/js/3.d54836a5.chunk.js": "/React-TwitterClone/static/js/3.d54836a5.chunk.js",
-    "static/js/3.d54836a5.chunk.js.map": "/React-TwitterClone/static/js/3.d54836a5.chunk.js.map",
+    "main.css": "/React-TwitterClone/static/css/main.c9784187.chunk.css",
+    "main.js": "/React-TwitterClone/static/js/main.feda8729.chunk.js",
+    "main.js.map": "/React-TwitterClone/static/js/main.feda8729.chunk.js.map",
+    "runtime-main.js": "/React-TwitterClone/static/js/runtime-main.becae9f2.js",
+    "runtime-main.js.map": "/React-TwitterClone/static/js/runtime-main.becae9f2.js.map",
+    "static/js/2.10472472.chunk.js": "/React-TwitterClone/static/js/2.10472472.chunk.js",
+    "static/js/2.10472472.chunk.js.map": "/React-TwitterClone/static/js/2.10472472.chunk.js.map",
+    "static/js/3.fe56595f.chunk.js": "/React-TwitterClone/static/js/3.fe56595f.chunk.js",
+    "static/js/3.fe56595f.chunk.js.map": "/React-TwitterClone/static/js/3.fe56595f.chunk.js.map",
     "index.html": "/React-TwitterClone/index.html",
-    "static/css/main.275566a1.chunk.css.map": "/React-TwitterClone/static/css/main.275566a1.chunk.css.map",
-    "static/js/2.b13d9584.chunk.js.LICENSE.txt": "/React-TwitterClone/static/js/2.b13d9584.chunk.js.LICENSE.txt",
+    "static/css/main.c9784187.chunk.css.map": "/React-TwitterClone/static/css/main.c9784187.chunk.css.map",
+    "static/js/2.10472472.chunk.js.LICENSE.txt": "/React-TwitterClone/static/js/2.10472472.chunk.js.LICENSE.txt",
     "static/media/a.2324b533.jpg": "/React-TwitterClone/static/media/a.2324b533.jpg",
     "static/media/aa.14327386.jpg": "/React-TwitterClone/static/media/aa.14327386.jpg",
     "static/media/av.10fee269.jpg": "/React-TwitterClone/static/media/av.10fee269.jpg",
@@ -20,9 +20,9 @@
     "static/media/zz.ec591909.jpg": "/React-TwitterClone/static/media/zz.ec591909.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.1888f151.js",
-    "static/js/2.b13d9584.chunk.js",
-    "static/css/main.275566a1.chunk.css",
-    "static/js/main.81968bb8.chunk.js"
+    "static/js/runtime-main.becae9f2.js",
+    "static/js/2.10472472.chunk.js",
+    "static/css/main.c9784187.chunk.css",
+    "static/js/main.feda8729.chunk.js"
   ]
 }
