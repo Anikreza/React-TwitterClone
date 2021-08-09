@@ -46,3 +46,26 @@
   margin-top: 10px !important;
   margin-left: 18px !important;
 }
+.logout{
+  padding-top: 10px;
+  margin-left: 0%;
+  opacity: .7;
+  width: auto;
+  height: 40px;
+  font-size: 15px;
+  border-radius: 20px;
+  border-style: none;
+  background-color: white;
+}
+.logout-bottom{
+  
+  background-color: var(--twitter-background);
+  border-radius: 20px;
+  float: left;
+  margin-top: 40vh;
+  margin-left: -75vw;
+}
+.logout:hover{
+  opacity:1;
+  cursor: pointer;
+}

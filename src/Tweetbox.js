@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react'
 import './Tweetbox.css'
-import a from './av.jpg'
+import a from './aa.jpg'
 import {Avatar, Button} from '@material-ui/core'
 import { GrEmoji } from 'react-icons/gr';
 import { AiOutlineFileGif } from 'react-icons/ai';
@@ -10,96 +10,98 @@ import {MdSchedule } from 'react-icons/md';
 import db from './firebase'
 import {storage, timestamp} from './firebase'
 import moment from 'moment'
+import firebase from 'firebase';
+import TextareaAutosize from 'react-textarea-autosize';
 
 
 
-function Tweetbox () {
-
-    const re =useRef()
-
+function Tweetbox ({avatar, name}) {
 
     
-    const [tweet, setTweet]= useState(" ");
+    const re =useRef() 
+    const [tweet, setTweet]= useState("");
     const [image, setImage]=useState(" ");
     const [url, setUrl] = useState("");
     const [error, setError] = useState("");
     const [timeStamp,setTimestamp]=useState("");
-    const [progress, setProgress] = useState(0);
+    const [progress, setProgress] = useState(0);   
+    const nameu=  `@${name}`; 
 
-    const getre=()=>{
-      let d= re.current.style.display="none"
-      console.log(d);
-      setTweet(" ");
-    }
 
-    const postTweet =() =>{
-        
-       
-        db.collection('posts').add({
-            displayname:"Tanvir Reza Anik",
-            username:"@TanvirRezaAnik1",
-            avatar: 'https://scontent.fcgp17-1.fna.fbcdn.net/v/t1.6435-9/151205961_1904845516357802_3308911151071232396_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=LLbvfeotRxIAX8QBA7P&_nc_ht=scontent.fcgp17-1.fna&oh=7db596091b8245ce71c1360b9cfda91b&oe=60E83452',
-            image: url,
-            verification: false,
-            text: tweet,
-            time:timeStamp,
-            like:'',
-        });    
-        setImage(" ");
-    }
-
-    
-   const handlechange = async (e) =>{
-            if(e.target.files[0]){
-                setImage(e.target.files[0])
-            }   
-            else{
-              setImage(null);
-              setError('Please select an image file');
-            }
-            storageRef.put(image).on('state_changed', (snap) => {
-              let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
-              setProgress(percentage);
-            }, (err) => {
-              setError(err);
-            }, 
+    const postTweet =() =>{       
+        storageRef.put(image).on(
+          "state_changed",
+          (snap) => {
+            let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
+            setProgress(percentage);
+          },
+          (err) => {
+            setError(err);
+          },  
           async () => {
-        
-          let url = await storageRef.getDownloadURL();   
-          const createdAt = timestamp(); 
-            setUrl(url);
-            setTimestamp(createdAt);                  
-        }            
-      );
-      
-                     
-   }
-   console.log("image:", image.name)
+            db.collection('posts').add({
+              displayname: name,
+              username: nameu,
+              avatar: avatar,
+              verification: false,
+              image: url,
+              text: tweet,
+              time:firebase.firestore.FieldValue.serverTimestamp(),
+              like:'',
+            });
+              setUrl(null);
+              setTweet("");     
+          }          
+        );      
+    }
+
+  
+
+
+    const filehandler = async (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        let reader = new FileReader();
+  
+        await setImage(file);
+        reader.onloadend = () => {
+          setUrl(reader.result);
+        };
+  
+        reader.readAsDataURL(file);
+      } else {
+        setImage(null);
+        setError("Please select an image file");
+      }   
+    };                 
    const storageRef = storage.ref(`images/${image.name}`);
- 
-   const handleTweet=()=>{
-    postTweet()
-    getre()
-   }
- 
+
+   function auto_height(e) {  /* javascript */
+    e.style.height = "1px";
+    e.style.height = (e.scrollHeight)+"px";
+}
+
     return (
         <div className='tweetbox'>
-            <form>
+            <form onSubmit={(e=> e.preventDefault())}>
                 <div className='tweetboxInput'>
-                 <Avatar src={"https://scontent.fcgp17-1.fna.fbcdn.net/v/t1.6435-9/151205961_1904845516357802_3308911151071232396_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=LLbvfeotRxIAX8QBA7P&_nc_ht=scontent.fcgp17-1.fna&oh=7db596091b8245ce71c1360b9cfda91b&oe=60E83452"}/> 
-
-                 <input 
-                  onChange ={e=>setTweet(e.target.value)} 
-                  placeholder="what's happening?"
-                  type='text' /> 
-                  
-                               
+                 <Avatar src={avatar} style={{height:'50px', width:'50px'}}/> 
+               
+     
+                    <TextareaAutosize
+                       className='auto_height'
+                       value={tweet} 
+                       onChange ={e=>setTweet(e.target.value)} 
+                       placeholder="What's happening?" 
+                       minRows={3}
+                       maxRows={20}
+                    />                          
                 </div>
 
                 <div className='tweetbox-ico'> 
-                <label htmlFor="fileinput">  <BsImage   size={25} style={{cursor:"pointer"}}/> </label>                        
+                <label ref={re}  htmlFor="fileinput">  <BsImage   size={25} style={{cursor:"pointer"}}/> </label>                        
                 <input         
-                     onChange={handlechange}
+                     onChange={filehandler}
                      className="tweetBox-imageInput"
                      id="fileinput"
                      type="file"
@@ -111,12 +113,12 @@ function Tweetbox () {
                 <MdSchedule size={25}/>
 
                 </div>           
-                <img ref={re}  src={url} style={{maxHeight:"350px"}} />   
-                <Button  onClick={handleTweet} className='tweetbox-button'> Tweet</Button>
-                
-                       
+                <img  src={url} style={{maxHeight:"350px"}} /> 
+              
+                <Button  onClick={postTweet} className='tweetbox-button'> Tweet</Button>
                
             </form>
+           
         </div>
     )
 }

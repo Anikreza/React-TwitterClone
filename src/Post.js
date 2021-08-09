@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './Post.css'
 import av from './av.jpg'
 import z from './z.jpg'
@@ -8,16 +8,20 @@ import RepeatIcon from "@material-ui/icons/Repeat";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import PublishIcon from "@material-ui/icons/Publish";
 import { GoVerified } from 'react-icons/go';
+import { FiDelete } from 'react-icons/fi';
 import Modal from './Modal'
-import Comfeed from './Comfeed'
+import ComBox from './ComBox'
 import db, { timestamp } from './firebase'
+import moment from 'moment'
+import { SettingsBackupRestore } from '@material-ui/icons'
 
-
-function Post({displayname, username, verification, time, text, image, avatar, like}) {
+function Post({displayname, username, verification, time, text, image, avatar, postid, name, avatarr}) {
    
     const [countera, setcountera]= useState(0); 
     const [liked, isLiked]=useState(false)
-
+    const [sure, setSure]=useState(false)
+ 
+   
     const counterhandlera = ()=>{
         isLiked(true); 
         if(liked){
@@ -26,29 +30,47 @@ function Post({displayname, username, verification, time, text, image, avatar, l
         }
         else{
             setcountera(countera+1);
-        }
-        
-       
+        }    
     }
-    
+    //const [id,setId]=useState();
+   // useEffect(() => {
+    //    db.collection("posts").onSnapshot((snapshot) =>
+       // setId(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}))  )   
+      //  setId(snapshot.docs.map((doc) => (doc.id)))        
+      //  ); 
+    //  }, []);
+
+    useEffect(() => {
+        console.log('this is postid:',postid)
+    }, [])
+
     const [tweet, setTweet]= useState(" ");
     const postTweet = (e) =>{
         e.preventDefault(); 
         db.collection('posts').add({
-            displayname:displayname,
+            displayname:name,
             username:username,
-            avatar: avatar,
+            avatar: avatarr,
             image: image,
             verification: verification,
             text: text,
             time:time,
             like:countera, 
         });
-        setTweet(" ");
-      
+        setTweet(" "); 
     }
-    
-  
+   
+  function remove(){
+       
+      if(window.confirm('Press OK To Delete The Post')){
+        db.collection("posts").doc(postid).delete().then(() => {
+            console.log("Document successfully deleted!");
+        }).catch((error) => {
+            console.error("Error removing document: ", error);
+        });
+      }
+ 
+  }
   
     return (
         <div className='post'>
@@ -57,11 +79,16 @@ function Post({displayname, username, verification, time, text, image, avatar, l
             </div>
             <div className='post-body'>
                 <div className='post-header'>
-                    
+                     <FiDelete 
+                     className={`delete-icon ${ name !==displayname && "delete-hidden"}`} 
+                               onClick={remove} size='25px'color='#543c42'
+                    />
                     <div className='post-header-text'>
                         <h3> {displayname}{" "} <span className="post__headerSpecial">
                              {verification &&< GoVerified className='post__badge'/>}
-                              {username} {`. `}</span>
+                              {username} {moment(time?.toDate())
+                                 .startOf("minute")
+                             .fromNow()}</span>
                        </h3>
                     </div>
                     <div className='post-header-description'>
@@ -70,7 +97,7 @@ function Post({displayname, username, verification, time, text, image, avatar, l
                 </div>
                  <img src={image}/>
                  <div className='post-footer'>
-                 <Comfeed/> 
+                 <ComBox name={name} postusername={username}/> 
                  <RepeatIcon onClick={postTweet}  fontSize="small" />        
                  <FavoriteBorderIcon onClick={counterhandlera} fontSize="small" />           
                  <PublishIcon fontSize="small" />                       

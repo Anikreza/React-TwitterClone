@@ -33,13 +33,22 @@
   
   }
 
-  
-  
+  .delete-icon{
+    float: right;
+    opacity: .7;
+  }
+  .delete-icon:hover{
+    opacity: 1;
+  }
+  .delete-hidden{
+    display: none;
+  }
   
   
   .post-header-description {
     margin-bottom: 10px;
     font-size: 15px;
+    white-space: pre-line;
   }
   
   .post-header-text > h3 {

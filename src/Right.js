@@ -1,5 +1,6 @@
 import React from 'react'
 import './Right.css'
+import { GoogleLogout } from 'react-google-login';
 import {
     TwitterTimelineEmbed,
     TwitterShareButton,
@@ -15,12 +16,11 @@ const Right = () => {
                 <input type='text' placeholder='Search Twitter'/>
            </div>
            <div className='right-container'>
-                
                 <h2>Trends for you</h2>
-               
+             
                 
                 <TwitterTimelineEmbed sourceType='profile' screenName='KAKA' options={{height:300}} />
-                <TwitterTimelineEmbed sourceType='profile' screenName='liverpoolfc' options={{height:300}} />
+                <TwitterTimelineEmbed sourceType='profile' screenName='LFC' options={{height:300}} />
                 <TwitterTweetEmbed tweetId={"1399698641535832068"}/>
                 </div>
         </div>

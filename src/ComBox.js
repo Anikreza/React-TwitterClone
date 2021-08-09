@@ -3,19 +3,45 @@ import Modal from './Modal'
 import db from './firebase'
 import Comfeed from './Comfeed'
 import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
+import firebase from 'firebase';
 
-const ComBox = () => {
+const ComBox = ({name, postusername, avatar}) => {
 
     const [comment, setComment]= useState([]);
+
+
+
     const postComment = (e) =>{
         e.preventDefault(); 
         db.collection('comments').add({
             text: comment,
-            username:"22ndSeaHawk",
+            username: name,
+           
+        
+            poster: postusername,
         });
+        alert(`Replied to ${postusername}`) 
         setComment(" ");
-      
+        setComments(" ");
+        console.log(comment)
     }
+
+    
+
+    const [comments, setComments]= useState([]);
+    
+    useEffect(() => {
+        db.collection("comments").orderBy("time", "asc").onSnapshot((snapshot) =>
+          setComments(snapshot.docs.map((doc) => doc.data()))
+        );
+           console.log(comments)
+      }, []);
+
+   
+
+
+
+
     const [isOpen, setIsOpen] = useState(false)
 
     return (
@@ -26,12 +52,36 @@ const ComBox = () => {
                  <input            
                   onChange ={e=>setComment(e.target.value)} 
                   placeholder="Tweet your reply"
-                  type='text' />     
+                  value={comment}
+                  type='text' />   
                   <button className='btn' onClick={postComment} > Reply </button>  
                   </form>                   
                 </Modal>
- 
+
+               
+
+
+                {comments.forEach((com) => 
+         
+         <Comfeed
+         key={com.text}
+         text={com.text}
+         username={com.username}
+         postusername={com.poster}
+       
+       />
+       
+        
+          
+        )}
+
+
+
+
+       
         </div>
+
+       
         
     )
 }

@@ -1,27 +1,18 @@
 
 import React, {useState, useEffect} from 'react'
 import db from './firebase'
-import Comment from './Comment'
-import ComBox from './ComBox'
+import {Avatar, Button} from '@material-ui/core'
 
-const Comfeed = () => {
+const Comfeed = ({text, postusername, user}) => {
 
-    const [comments, setComments]= useState([]);
-    
-    useEffect(() => {
-        db.collection("comments").onSnapshot((snapshot) =>
-          setComments(snapshot.docs.map((doc) => doc.data()))
-        );
-      }, []);
-
+ 
 
     return (
         <div className='combox'>
-
-          <ComBox />  
-                   
-  
-         
+              
+           <h5> {user} </h5>
+          <p>{postusername}</p>
+          <p>{text}</p>
 
         </div>
     )
