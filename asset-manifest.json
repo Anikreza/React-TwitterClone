@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/React-TwitterClone/static/css/main.45465ec4.chunk.css",
+    "main.css": "/React-TwitterClone/static/css/main.db077581.chunk.css",
     "main.js": "/React-TwitterClone/static/js/main.a53e27aa.chunk.js",
     "main.js.map": "/React-TwitterClone/static/js/main.a53e27aa.chunk.js.map",
     "runtime-main.js": "/React-TwitterClone/static/js/runtime-main.8f5a3afc.js",
@@ -12,7 +12,7 @@
     "static/js/3.35acea12.chunk.js.map": "/React-TwitterClone/static/js/3.35acea12.chunk.js.map",
     "index.html": "/React-TwitterClone/index.html",
     "static/css/2.3837f44f.chunk.css.map": "/React-TwitterClone/static/css/2.3837f44f.chunk.css.map",
-    "static/css/main.45465ec4.chunk.css.map": "/React-TwitterClone/static/css/main.45465ec4.chunk.css.map",
+    "static/css/main.db077581.chunk.css.map": "/React-TwitterClone/static/css/main.db077581.chunk.css.map",
     "static/js/2.16593ca4.chunk.js.LICENSE.txt": "/React-TwitterClone/static/js/2.16593ca4.chunk.js.LICENSE.txt",
     "static/media/a.2324b533.jpg": "/React-TwitterClone/static/media/a.2324b533.jpg",
     "static/media/aa.14327386.jpg": "/React-TwitterClone/static/media/aa.14327386.jpg",
@@ -22,7 +22,7 @@
     "static/js/runtime-main.8f5a3afc.js",
     "static/css/2.3837f44f.chunk.css",
     "static/js/2.16593ca4.chunk.js",
-    "static/css/main.45465ec4.chunk.css",
+    "static/css/main.db077581.chunk.css",
     "static/js/main.a53e27aa.chunk.js"
   ]
 }
