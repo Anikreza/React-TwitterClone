@@ -1,0 +1,75 @@
+.user-summery{
+    display: flex;
+    font-family: sans-serif;
+}
+.user-summery p2{
+    padding-left: 10px;
+    font-size: 17px;
+    margin-top: 10px;
+    color: rgb(19, 20, 20);
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.post-summery {
+    min-height: fit-content;
+    
+}
+.user-summery p1{
+    font-family: sans-serif;
+    font-size: 12px;
+    margin-top: 17px;
+    margin-left: 3px;
+    color: rgb(112, 110, 110);
+    font-weight: lighter;
+}
+.post-summery p{
+    font-family: sans-serif;
+    color: black;
+    font-size: 15px;
+    margin-left: 55px;
+    font-weight: lighter;
+    max-height: 100px;
+    overflow-y: scroll;
+}
+.post-summery p5{
+    font-family: sans-serif;
+    color: black;
+    font-size: 15px;
+    margin-left: 55px;
+    font-weight: lighter;
+}
+.post-summery p4{
+    font-family: sans-serif;
+    color: #00a2ff;
+    font-size: 16px;
+   
+}
+
+.tweet-reply{
+    padding: 40px;
+    display: flex;
+}
+.reply-avatar{
+    margin-top: 20px;
+    margin-left: -38px;
+}
+.comment-input>input:focus{
+    outline: none;
+}
+.comment-input>input{
+   padding-left: 20px;
+}
+
+.comment-input> textarea{
+    resize: none;
+    padding-top: 30px;
+    font-family:sans-serif;
+    margin-left: 20px;
+    border:none;
+    font-size: 20px;
+    min-height: fit-content;
+    min-width: 30vw;
+}
+.comment-input > .auto_height:focus{
+    outline:none;
+}
