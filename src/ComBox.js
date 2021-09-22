@@ -1,79 +1,99 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import Modal from './Modal'
 import db from './firebase'
-import Comfeed from './Comfeed'
 import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import firebase from 'firebase';
+import { Avatar } from '@material-ui/core';
+import './combox.css' 
+import moment from 'moment'
+import { GoVerified } from 'react-icons/go';
+import TextareaAutosize from 'react-textarea-autosize';
 
-const ComBox = ({name, postusername, avatar}) => {
 
-    const [comment, setComment]= useState([]);
+const ComBox = ({name, postusername, avatar, time, text, useravatar,displayname}) => {
 
-
+  
+  const [comment, setComment]=useState('')
+  const rep='Replying to';
+  const nameu=  `@${name}`;  
+  const [isActive, setActive] = useState(true);
+  const [isOpen, setIsOpen] = useState(false)
+  
+  const toggleClass = () => {
+    setActive(!isActive);
+  };
 
     const postComment = (e) =>{
+      
         e.preventDefault(); 
-        db.collection('comments').add({
+
+        db.collection('posts').add({
+            displayname:name,
+            username:nameu,
+            avatar: useravatar,
+            reply:rep,
+            image:'',
+            who:postusername,
+            like:0,
+            verification:'',
             text: comment,
-            username: name,
-           
-        
-            poster: postusername,
+            time:firebase.firestore.FieldValue.serverTimestamp(),  
         });
-        alert(`Replied to ${postusername}`) 
-        setComment(" ");
-        setComments(" ");
-        console.log(comment)
+
+        db.collection('notifications').doc(displayname).collection('notification').add({
+          notification: `${name} Replied To you: ${comment}`, 
+          enable: true,
+          time: firebase.firestore.FieldValue.serverTimestamp(), 
+      });
+          setComment(''); 
+          setIsOpen(false)
+        console.log(rep)
     }
 
     
-
-    const [comments, setComments]= useState([]);
     
-    useEffect(() => {
-        db.collection("comments").orderBy("time", "asc").onSnapshot((snapshot) =>
-          setComments(snapshot.docs.map((doc) => doc.data()))
-        );
-           console.log(comments)
-      }, []);
-
-   
-
-
-
-
-    const [isOpen, setIsOpen] = useState(false)
 
     return (
         <div  >
-               <ChatBubbleOutlineIcon fontSize="small" onClick={() => setIsOpen(true)}/>
+               <ChatBubbleOutlineIcon className={!isActive? 'com-c': 'com-bw'} fontSize="small" onClick={() => setIsOpen(true)}/>
                  <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-                 <form className='comment-input'>
-                 <input            
-                  onChange ={e=>setComment(e.target.value)} 
-                  placeholder="Tweet your reply"
-                  value={comment}
-                  type='text' />   
-                  <button className='btn' onClick={postComment} > Reply </button>  
-                  </form>                   
+                   <div className='post-summery'>
+                      <div className='user-summery'>
+                           <Avatar src={avatar}/>
+                           <p2>{postusername}</p2>
+                           <GoVerified color='grey' style={{marginTop:'15px', padding:'1px'}}/>
+                           <p1>{moment(time?.toDate()).startOf("minute").fromNow()}</p1>
+                      </div>
+                      <p>{text}</p> 
+                    
+                      <br/>
+                       <p5>Replying to <p4>{postusername}</p4></p5>
+                       <br/>  
+                   </div>
+                   
+                   
+                   <div className='tweet-reply'>
+                       <Avatar className='reply-avatar' src={useravatar}/>
+                        <form className='comment-input' onSubmit={(e)=>e.preventDefault()}>
+
+                            <TextareaAutosize
+                              className='auto_height'
+                              onChange ={e=>setComment(e.target.value)} 
+                              placeholder="Tweet your reply"
+                              value={comment}
+                              type='text'
+                              minRows={1}
+                              maxRows={5}
+                           />   
+                        </form> 
+                       
+                   </div>
+                   <button className='btn' onClick={postComment} > Reply </button> 
                 </Modal>
 
                
 
 
-                {comments.forEach((com) => 
-         
-         <Comfeed
-         key={com.text}
-         text={com.text}
-         username={com.username}
-         postusername={com.poster}
-       
-       />
-       
-        
-          
-        )}
 
 
 

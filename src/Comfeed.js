@@ -10,8 +10,8 @@ const Comfeed = ({text, postusername, user}) => {
     return (
         <div className='combox'>
               
-           <h5> {user} </h5>
-          <p>{postusername}</p>
+           <p> {user} </p>
+          <p>Replying to {postusername}</p>
           <p>{text}</p>
 
         </div>

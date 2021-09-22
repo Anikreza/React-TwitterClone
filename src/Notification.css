@@ -1,0 +1,105 @@
+.notification{
+    flex:0.5;
+    
+}
+.height{
+    min-height: 90vh;
+}
+.flex{
+    display: flex;
+    max-width: 40vw;
+   
+}
+.notification p{
+    margin-top: 50px;
+    margin-left: 10px;
+  
+}
+.notification h2{
+    margin-top: 25px;
+    margin-left: 50px;
+    font-size: 40px;
+    color: var(--twitter-color);
+}
+
+hr{
+    background: linear-gradient(to right, rgb(236, 238, 236),rgb(241, 239, 239), rgb(236, 240, 237));
+    height: 1px;
+    border-style: hidden;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.flexbox{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.lefth{
+    flex: 1;
+    position: relative;
+    
+    padding-left: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+    background-color: inherit;
+}
+.righth{
+    flex: 1;
+    position: relative;
+    padding-left: 80px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    background-color: inherit;
+}
+
+.lefth:hover{
+    background-color: rgb(228, 225, 225);
+    cursor: pointer;
+}
+
+.righth:hover{
+    background-color: rgb(228, 225, 225);
+    cursor: pointer;
+}
+
+.move-hr-bg{
+    background: var(--twitter-color);
+    height: 4px;
+    border-style: hidden;
+    position: relative; 
+    left: 80px;
+    width: 60px;
+    top:1px;
+}
+.move-hr{
+    background: none;
+    height: 4px;
+    border-style: hidden;
+    position: relative;
+    left: 80px;
+    width: 60px;
+    top:1px;
+}
+.move-hr-r-bg{
+    background: var(--twitter-color);
+    height: 4px;
+    border-style: hidden;
+    position: relative;
+    left: 395px;
+    width: 100px;
+    top:1px;
+}
+.move-hr-r{
+    background: none;
+    height: 4px;
+    border-style: hidden;
+    position: relative;
+    left: 395px;
+    width: 100px;
+    top:1px;
+}

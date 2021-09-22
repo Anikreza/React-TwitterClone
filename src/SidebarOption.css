@@ -35,3 +35,15 @@
   .sidebarOption--active {
     color: var(--twitter-color);
   }
+
+  .notification-circle{
+    padding: 1px 5px 5px 5px;
+    border-radius: 50%;
+    background-color: var(--twitter-color);
+    opacity: .8;
+    margin-top: 18px;
+    margin-left: -180px;
+  }
+  .hide{
+    display: none;
+  }

@@ -1,11 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import './Post.css'
-import av from './av.jpg'
-import z from './z.jpg'
 import {Avatar} from '@material-ui/core'
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import RepeatIcon from "@material-ui/icons/Repeat";
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import FavoriteTwoToneIcon from '@material-ui/icons/FavoriteTwoTone';
 import PublishIcon from "@material-ui/icons/Publish";
 import { GoVerified } from 'react-icons/go';
 import { FiDelete } from 'react-icons/fi';
@@ -14,39 +12,46 @@ import ComBox from './ComBox'
 import db, { timestamp } from './firebase'
 import moment from 'moment'
 import { SettingsBackupRestore } from '@material-ui/icons'
+import firebase from 'firebase'
 
-function Post({displayname, username, verification, time, text, image, avatar, postid, name, avatarr}) {
+function Post({displayname, username, verification, time, text, image, avatar, postid, name, avatarr, reply, who,like}) {
    
-    const [countera, setcountera]= useState(0); 
+    const [counter, setcounter]= useState(like); 
     const [liked, isLiked]=useState(false)
-    const [sure, setSure]=useState(false)
- 
-   
-    const counterhandlera = ()=>{
+    const [isActive, setActive] = useState(true);
+    const [isActivec, setActivec] = useState(true);
+
+    const toggleClass = () => {
+      setActive(!isActive);
+    };
+
+
+    const counterhandler = ()=>{
+        setActive(!isActive);
         isLiked(true); 
+        
         if(liked){
-            setcountera(countera-1);
+            setcounter(counter-1);
             isLiked(false)
         }
         else{
-            setcountera(countera+1);
-        }    
-    }
-    //const [id,setId]=useState();
-   // useEffect(() => {
-    //    db.collection("posts").onSnapshot((snapshot) =>
-       // setId(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}))  )   
-      //  setId(snapshot.docs.map((doc) => (doc.id)))        
-      //  ); 
-    //  }, []);
+            setcounter(counter+1);
+        }
 
-    useEffect(() => {
-        console.log('this is postid:',postid)
-    }, [])
+
+        db.collection('posts').doc(postid).update({
+            like:counter, 
+        });
+        console.log('this is like:',like)
+    }
+
 
     const [tweet, setTweet]= useState(" ");
+
     const postTweet = (e) =>{
+        
         e.preventDefault(); 
+        if(displayname!==name){
         db.collection('posts').add({
             displayname:name,
             username:username,
@@ -54,10 +59,22 @@ function Post({displayname, username, verification, time, text, image, avatar, p
             image: image,
             verification: verification,
             text: text,
-            time:time,
-            like:countera, 
+            time:firebase.firestore.FieldValue.serverTimestamp(),
+            like:0, 
         });
-        setTweet(" "); 
+         
+                db.collection('notifications').doc(displayname).collection('notification').add({
+                notification: `${name} Re-tweeted your tweet`,
+                enable: true,
+                time: firebase.firestore.FieldValue.serverTimestamp()
+            });
+          }
+          else{
+              window.alert('You cant retweet your own tweet');
+          }  
+
+        setTweet(""); 
+        setActivec(!isActivec);
     }
    
   function remove(){
@@ -84,25 +101,33 @@ function Post({displayname, username, verification, time, text, image, avatar, p
                                onClick={remove} size='25px'color='#543c42'
                     />
                     <div className='post-header-text'>
-                        <h3> {displayname}{" "} <span className="post__headerSpecial">
-                             {verification &&< GoVerified className='post__badge'/>}
-                              {username} {moment(time?.toDate())
-                                 .startOf("minute")
-                             .fromNow()}</span>
+                        <h3> {displayname}{""} <span className="post__headerSpecial">
+                             {verification && <GoVerified />}
+                              {username} {moment(time?.toDate()).startOf("minute").fromNow()}</span>
                        </h3>
                     </div>
                     <div className='post-header-description'>
+                          <p>{reply} <span className='spanwho' color='#00a2ff'>{who}</span></p>
+                          <br/>
                          <p>{text}</p>
                     </div>
                 </div>
                  <img src={image}/>
                  <div className='post-footer'>
-                 <ComBox name={name} postusername={username}/> 
-                 <RepeatIcon onClick={postTweet}  fontSize="small" />        
-                 <FavoriteBorderIcon onClick={counterhandlera} fontSize="small" />           
-                 <PublishIcon fontSize="small" />                       
+                 <ComBox  name={name} displayname={displayname} postusername={username} postid={postid} avatar={avatar} useravatar={avatarr} image={image} time={time} text={text}/> 
+                 <RepeatIcon  className={!isActivec? 'repeat-c': 'repeat-bw'} onClick={postTweet}  fontSize="small" />        
+                 <FavoriteTwoToneIcon  className={!isActive? 'love-c': 'love-bw'} onClick={counterhandler} fontSize="small" />         
+                 <PublishIcon fontSize="small" onClick={()=> window.alert('Under Developement')}/>                       
                  </div>
-                 <div className='move'><p3> {countera} </p3></div>
+                  {
+                      like>0?
+                      <div className='move'><p3> {like} </p3></div>
+                      :
+                      <div>
+
+                      </div>
+                  }
+                 
                 
             </div>
            

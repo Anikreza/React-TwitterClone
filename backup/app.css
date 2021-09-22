@@ -1,0 +1,33 @@
+
+
+
+
+.grandparent{
+  background-color: green;
+  
+  float: left;
+  margin-top:10%;
+  margin-left:40%;
+
+  height: 400px;
+  width: 400px;
+
+}
+.parent{
+  background-color: red;
+  
+  float: left;
+  margin-top:10%;
+  margin-left:15%;
+  height: 300px;
+  width: 300px;
+}
+.child{
+  background-color: black;
+  float: left;
+  margin-top:15%;
+  margin-left:15%;
+  height: 200px;
+  width: 200px;
+  
+}

@@ -1,4 +1,4 @@
-import React,  {useState} from "react";
+import React,  {useEffect, useState} from "react";
 import "./Sidebar.css";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import SidebarOption from "./SidebarOption";
@@ -17,22 +17,81 @@ import {Avatar} from '@material-ui/core'
 import { GoogleLogout } from 'react-google-login';
 import PureModal from 'react-pure-modal';
 import 'react-pure-modal/dist/react-pure-modal.min.css';
+import SidebarOptionNotification from "./SidebarOptionNotification";
+import { BrowserRouter as Router,Switch, Route, Link} from 'react-router-dom';
+import db, {timestamp} from './firebase'
+
+
 
 function Sidebar({name, avatar}) {
+
+
+  const [notification, setNotification]=useState([])
+  const [clearnoti, setClearNoti]=useState(false)
+
+
+  useEffect(() => {
+    db.collection('notifications').doc(name).collection('notification').orderBy("time", "desc").onSnapshot((snapshot) =>
+      setNotification(snapshot.docs.map((doc) =>(
+        {
+          id:doc.id,
+          data: doc.data(),             
+        }
+      )))
+    ); 
+  }, [notification]);
+
+
+
+  function clearNotification(){
+      setClearNoti(true)
+      for (let i=0; i<=notification.length; i++){
+        db.collection('notifications').doc(name).collection('notification').doc(notification[i]?.id).update({
+          enable: false 
+      });
+      console.log(i)
+      }
+
+  }
+
 
   const [modal, setModal] = useState(false);
   return (
     <div className="sidebar">
+      <Link to='/React-TwitterClone'>
       <TwitterIcon className="sidebar__twitterIcon" />
-
+      </Link>
+      <Link to='/React-TwitterClone'>
       <SidebarOption active Icon={RiHome7Fill} text="Home" />
-      <SidebarOption Icon={FiHash} text="  Explore" />
-      <SidebarOption Icon={GrNotification} text="Notifications" />
+      </Link>
+      <div onClick={()=> window.alert('Under Developement')}>
+          <SidebarOption Icon={FiHash} text="  Explore" />
+      </div>
+     
+      <div onClick={clearNotification}>
+      <Link to='/notification'>
+      <SidebarOptionNotification clearnoti={clearnoti} name={name} Icon={GrNotification} text="Notifications" />
+      </Link>
+      </div>
+      <div onClick={()=> window.alert('Under Developement')}>
       <SidebarOption Icon={MailOutlineIcon} text="Messages" />
+      </div>
+     
+      <div onClick={()=> window.alert('Under Developement')}>
       <SidebarOption Icon={BsBookmark} text="Bookmarks" />
-      <SidebarOption Icon={SubjectIcon } text="Lists" />
-      <SidebarOption Icon={PermIdentityIcon} text="Profile" />
-      <SidebarOption Icon={CgMoreO} text="  More" />   
+      </div>
+      <div onClick={()=> window.alert('Under Developement')}>
+          <SidebarOption Icon={SubjectIcon } text="Lists" />
+      </div>
+      
+      <div onClick={()=> window.alert('Under Developement')}>
+          <SidebarOption Icon={PermIdentityIcon} text="Profile" />
+      </div>
+      
+      <div onClick={()=> window.alert('Under Developement')}>
+          <SidebarOption Icon={CgMoreO} text="  More" />  
+      </div>
+      
       
 
       {/* Button -> Tweet */}

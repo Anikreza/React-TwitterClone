@@ -29,7 +29,7 @@
   .post-footer {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 5px;
   
   }
 
@@ -46,7 +46,7 @@
   
   
   .post-header-description {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-size: 15px;
     white-space: pre-line;
   }
@@ -71,3 +71,48 @@
   .post-avatar {
     padding: 10px;
   }
+  .spanwho{
+    color: #00a2ff ;
+  }
+.love-bw{
+  fill: black;
+ 
+}
+.love-c{
+  color: red;
+
+ 
+}
+.love-bw:hover{
+  font-size: larger;
+  color: red;
+}
+
+
+
+.repeat-bw{
+  color: inherit;
+}
+.repeat-c{
+  color: green;
+}
+
+
+  .repeat-bw:hover{
+    color: green;
+    font-size: larger;
+  }
+
+
+
+  .com-bw{
+    color: inherit;
+  }
+  .com-c{
+    color:#00a2ff ;
+  }
+  .com-bw:hover{
+    color: #00a2ff ;
+    font-size: larger;
+  }
+
