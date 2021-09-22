@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/React-TwitterClone/static/css/main.d77b6480.chunk.css",
-    "main.js": "/React-TwitterClone/static/js/main.4e50ec1b.chunk.js",
-    "main.js.map": "/React-TwitterClone/static/js/main.4e50ec1b.chunk.js.map",
+    "main.js": "/React-TwitterClone/static/js/main.eef9e339.chunk.js",
+    "main.js.map": "/React-TwitterClone/static/js/main.eef9e339.chunk.js.map",
     "runtime-main.js": "/React-TwitterClone/static/js/runtime-main.96b0f28e.js",
     "runtime-main.js.map": "/React-TwitterClone/static/js/runtime-main.96b0f28e.js.map",
     "static/css/2.3837f44f.chunk.css": "/React-TwitterClone/static/css/2.3837f44f.chunk.css",
@@ -23,6 +23,6 @@
     "static/css/2.3837f44f.chunk.css",
     "static/js/2.1609e29d.chunk.js",
     "static/css/main.d77b6480.chunk.css",
-    "static/js/main.4e50ec1b.chunk.js"
+    "static/js/main.eef9e339.chunk.js"
   ]
 }
