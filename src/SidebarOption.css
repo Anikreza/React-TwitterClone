@@ -6,9 +6,9 @@
   }
   
   .sidebarOption:hover {
-    background-color: #e8f5fe;
+    background-color: #f1f1f1;
     border-radius: 30px;
-    color: var(--twitter-color);
+    color: black;
     transition: color 100ms ease-out;
   }
   
@@ -21,6 +21,7 @@
     font-size: 20px;
     font-family:sans-serif;
     margin-right: 20px;
+    font-weight: lighter;
   }
 
   .sidebarOption > h3 {
@@ -33,7 +34,7 @@
   
   
   .sidebarOption--active {
-    color: var(--twitter-color);
+    color: black;
   }
 
   .notification-circle{

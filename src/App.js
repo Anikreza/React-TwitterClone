@@ -9,6 +9,7 @@ import db from './firebase'
 import a from './tt.png'
 import { ImTwitter } from 'react-icons/im';
 import { BrowserRouter as Router,Switch, Route} from 'react-router-dom';
+import Messages from './Messages';
 
 
 function App() {
@@ -26,15 +27,7 @@ function App() {
       
   }
 
-  useEffect(() => {
-    {
-      db.collection('users').doc().set({
-        username: name,
-        email: email,
-        avatar: avatar,
-      })
-    }
-  }, [])
+
 
 
   
@@ -75,8 +68,13 @@ function App() {
             <Switch>
 
               <Route path="/React-TwitterClone">
-              <Feed name={name} avatar={avatar}/>
-              </Route>              
+              <Feed name={name} avatar={avatar} email={email}/>
+              </Route> 
+
+              <Route path="/messages">
+              <Messages name={name} avatar={avatar} email={email}/>
+              </Route> 
+
               <Route path="/notification">
                <Notification name={name}/>
               </Route>

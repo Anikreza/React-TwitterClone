@@ -1,0 +1,368 @@
+.messages{
+    flex:1;
+    padding-right: 13%;
+  
+}
+.username-msgs{
+    position: relative;
+    padding-left: 138px;
+    font-size: larger;
+}
+.flex-message{
+    display: flex;
+}
+.flex-message h3{
+    position: relative;
+    top:5px;
+    font-size: 21px;
+}
+.message-box{
+    min-width: 30vw;
+}
+.users-box{
+    min-width: 40vw;
+    margin-top: 28%;
+    margin-left: 15%;
+}
+
+.users-box h2{
+    font-family: sans-serif;
+    font-size: 28px;
+    max-width: 300px;
+    margin-left: 15%;
+}
+.users-box p{
+    padding-top: 8px;
+    font-family: sans-serif;
+    font-size: 15px;
+    max-width: 300px;
+    margin-left: 15%;
+}
+
+.hide-modal{
+    display: none;
+}
+
+.message-select-button{
+    padding:16px;
+    background-color: var(--twitter-color);
+    border-radius: 50px;
+    border-style: none;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: 700 !important;
+    margin-left: 15%;
+}
+
+.message-modal{
+    z-index: 100;
+    position: absolute;
+    top:10%; 
+    left:30%;
+    min-width: 40vw;
+    min-height: 80vh;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.overlay{
+    position: fixed;
+    opacity: .5;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(116, 116, 114);
+    
+}
+
+.message-modal input{
+    padding: 15px;
+    width: 90%;
+    border-style: none;
+}
+
+.chatbox{
+    background-color: white;
+    min-width: 52vw;
+    min-height: 99vh;
+    position: absolute;
+    margin-left: 28%;
+    padding: 10px;  
+
+}
+
+.chat-header{
+    position: relative;
+    padding-left: 10px;
+    top: 0%;
+}
+.chat-header p1{
+    font-size: 12px;
+    color: rgb(58, 58, 58);
+    margin-left: -84px;
+    margin-top: 35px;
+}
+.username-msg{
+    position: absolute;
+    left:42%;
+    top:2%;
+}
+.chat-header h3{
+    margin-left: 14px;
+    margin-top: 10px;
+}
+.chat-header h2{
+    margin-top: 10px;
+}
+.wrap-chat{
+    border-left-style: ridge;
+    max-height: 90vh;
+    min-height: 90vh;
+    margin-left: 10%;
+    max-width: 50vw;
+    border-left-width: thin;
+    border-left-color: rgb(238, 238, 238);
+    overflow: scroll;
+    scrollbar-width: thin;
+    overflow-x: hidden;
+}
+
+.pad-left{
+    position: relative;
+    padding-left: 60px;
+    margin-right: -20px;
+}
+
+.chat-middle{
+    height: auto;
+    position: relative; 
+    top:3%;
+    width: auto;
+    text-align: center;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 15px 15px 15px 0px;
+   
+}
+.chat-middle:hover{
+    background-color: rgb(241, 241, 241);
+    cursor: pointer;
+}
+.chat-middle h2{
+    padding-right: 0px;
+}
+.chat-middle p1{
+    font-size: 12px;
+    color: rgb(58, 58, 58);;
+}
+.chat-middle-info{
+   position: relative;
+   top:-45%;
+}
+.chat-middle p{
+    font-family: sans-serif;
+    font-size: 15px;
+    padding-top: 5px;
+    padding-right: 0px;
+    color: rgb(11, 29, 41);
+}
+.flex-this{
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 300px;
+    margin-left: 23%;
+}
+.flex-this p1{
+    font-weight: 800;
+}
+.message-body{
+    white-space: normal;
+    word-break: break-word;
+    margin-left: 0px;
+}
+
+
+.leftm{
+    position: relative;
+    top:1px;
+    height: inherit;
+    border-right-style: hidden;
+    padding-right: 180px;
+    width: max-content;
+    max-width: 120vw;
+}
+
+.rightm{
+    text-align: right;
+    align-self: flex-end;
+    height: inherit;
+    width: fit-content;
+    max-width: 120vw;
+}
+.color-recieve{
+    background-color: var(--twitter-color);
+    color: white;
+    padding: 10px;
+    margin-top: 25px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.color-send{
+    background-color: rgb(231, 231, 231);
+    color: black;
+    padding: 10px;
+    margin-top: 40px;
+    margin-left: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: auto;
+
+
+}
+.leftt{
+    float: left;
+    min-width: 5vw;
+    max-width: 3vw;
+    max-height: 100%;
+    font-size: 12px;
+    margin-top:-35px;
+    margin-right: 60px;
+}
+.rightt{
+    float: right;
+    max-width: 5vw;
+
+    padding: 3px;
+    max-height: 100%;
+    font-size: 12px;
+}
+
+.flex-avatar{
+    display: flex;
+    flex-direction: column;
+}
+.avatar-chat{
+ position: relative;
+ top:-40px;
+
+}
+
+
+
+
+
+
+
+
+.text{
+    min-height: 57vh;
+    max-height: 58vh;
+    padding: 10px;
+    overflow: scroll;
+    scrollbar-width: thin;
+    overflow-x: hidden;
+    line-break: auto;
+}
+
+.text-right{
+    position: relative;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    font-size: 16px;
+    color: black;
+    padding: 10px;
+    background-color: rgb(228, 228, 228);
+    width:fit-content;
+    margin-bottom: 5px;
+    max-width: 70%;
+    white-space: normal;
+    word-break: break-word;
+    
+}
+.text-left{
+    float: right;
+    margin-right: 0%;
+    background-color: var(--twitter-color);
+    padding: 12px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    font-size: 16px;
+    color: white;
+    width:fit-content;
+    max-width: 70%;
+    white-space: normal;
+    word-break: break-word;
+    
+}
+
+.tstamp-right{
+    position: relative;
+    font-size: 13px;
+    background-color: inherit;
+    padding-left: 5px;
+   
+}
+.tstamp-left{
+    margin-left: 90%;
+    background-color: inherit;
+    font-size: 13px;
+    margin-top: 5px;
+    min-width: 100px;
+}
+
+.select-chat{
+    padding-left: 60px;
+    padding-bottom: 20px;
+    border-radius: 50px;
+}
+.select-chat:hover{
+    color: rgb(47, 66, 65);
+    background-color: rgb(222, 223, 222);
+}
+
+
+
+.select-chat p{
+
+    font-weight: 700;
+}
+.select-chat p1{
+
+    font-size: 12px;
+    margin-left: 15%;
+}
+.select-chat:hover{
+    cursor: pointer;
+}
+.chats-flex{
+    display: flex;
+    flex-direction: column;
+    margin-top: -9%;
+}
+.h5{
+    margin-left: 27%;
+    color: rgb(30, 78, 58);
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

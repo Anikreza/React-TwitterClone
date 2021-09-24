@@ -39,7 +39,7 @@ body {
   background-color: var(--twitter-color);
 }
 .loginbtn:hover{
-  background-color: #0a91df;
+  background-color: #0b8ad4;
   cursor: pointer;
 }
 .app {
@@ -173,6 +173,12 @@ body {
 
 }
 
+input:focus{
+  outline: none;
+}
+.hide{
+  display: none;
+}
 
 
 

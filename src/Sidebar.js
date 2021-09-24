@@ -12,13 +12,12 @@ import { GrNotification }  from 'react-icons/gr';
 import { RiHome7Fill } from 'react-icons/ri';
 import { BsBookmark } from 'react-icons/bs';
 import {   BsThreeDots } from 'react-icons/bs';
-import a from './aa.jpg'
 import {Avatar} from '@material-ui/core'
 import { GoogleLogout } from 'react-google-login';
 import PureModal from 'react-pure-modal';
 import 'react-pure-modal/dist/react-pure-modal.min.css';
 import SidebarOptionNotification from "./SidebarOptionNotification";
-import { BrowserRouter as Router,Switch, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router,Switch, Route, NavLink,Link} from 'react-router-dom';
 import db, {timestamp} from './firebase'
 
 
@@ -58,28 +57,35 @@ function Sidebar({name, avatar}) {
   const [modal, setModal] = useState(false);
   return (
     <div className="sidebar">
-      <Link to='/React-TwitterClone'>
+
+      <NavLink path to='/React-TwitterClone'>
       <TwitterIcon className="sidebar__twitterIcon" />
-      </Link>
-      <Link to='/React-TwitterClone'>
-      <SidebarOption active Icon={RiHome7Fill} text="Home" />
-      </Link>
+      </NavLink>
+
+      <NavLink path to='/React-TwitterClone' activeStyle={{fontWeight:'1000'}}>
+      <SidebarOption Icon={RiHome7Fill}  text="Home" />
+      </NavLink>
+
       <div onClick={()=> window.alert('Under Developement')}>
           <SidebarOption Icon={FiHash} text="  Explore" />
       </div>
      
       <div onClick={clearNotification}>
-      <Link to='/notification'>
+      <NavLink path to='/notification' activeStyle={{fontWeight:'1000'}}>
       <SidebarOptionNotification clearnoti={clearnoti} name={name} Icon={GrNotification} text="Notifications" />
-      </Link>
+      </NavLink>
       </div>
-      <div onClick={()=> window.alert('Under Developement')}>
-      <SidebarOption Icon={MailOutlineIcon} text="Messages" />
+
+      <div >
+      <NavLink path to='/messages' activeStyle={{fontWeight:'1000'}}>
+      <SidebarOption  Icon={MailOutlineIcon} text="Messages" />
+      </NavLink>
       </div>
      
       <div onClick={()=> window.alert('Under Developement')}>
       <SidebarOption Icon={BsBookmark} text="Bookmarks" />
       </div>
+
       <div onClick={()=> window.alert('Under Developement')}>
           <SidebarOption Icon={SubjectIcon } text="Lists" />
       </div>

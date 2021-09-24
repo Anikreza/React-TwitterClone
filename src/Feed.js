@@ -2,15 +2,10 @@ import React, {useState, useEffect} from 'react'
 import './Feed.css'
 import Tweetbox from './Tweetbox'
 import Post from './Post'
-import Comfeed from './Comfeed'
-import ComBox from './ComBox'
-import a from './a.jpg'
-import aa from './aa.jpg'
 import db, {timestamp} from './firebase'
-import { BounceLoader, BeatLoader, BarlLoader } from 'react-spinners'
-import FacebookLoading from 'react-facebook-loading';
+import firebase from 'firebase';
 
-const Feed = ({name, avatar}) => {
+const Feed = ({name, avatar, email}) => {
 
     const [posts, setPosts] = useState([]);
     const [loading, setLoading]=useState(false);
@@ -27,9 +22,18 @@ const Feed = ({name, avatar}) => {
             }
           )))
         ); 
-         setLoading(false)
-      }, []);
 
+                
+        db.collection('users').doc(email).set({
+          username: name,
+          email: email,
+          avatar: avatar,
+          time:firebase.firestore.FieldValue.serverTimestamp(),
+        })
+
+
+         setLoading(false)
+      }, [avatar]);
 
 
     return (

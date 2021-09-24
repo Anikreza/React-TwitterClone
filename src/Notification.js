@@ -3,6 +3,7 @@ import './Notification.css'
 import db, {timestamp} from './firebase'
 import TwitterIcon from "@material-ui/icons/Twitter";
 import { BounceLoader, BeatLoader, BarlLoader } from 'react-spinners'
+import moment from 'moment'
 
 const Notification = ({name}) => {
 
@@ -45,7 +46,8 @@ const Notification = ({name}) => {
                     notification.map(n=>(
                       <div className='flex'>
                           <h2><TwitterIcon size={45}/></h2>
-                          <p>{n.data.notification} <hr/></p>              
+                          <p>{`${n.data.notification}    `}<p1 className='color-notif'>{moment(n.data.time?.toDate()).startOf("minute").fromNow()}</p1>    <hr/></p> 
+                                    
                       </div>
                                 
                   ))   :
