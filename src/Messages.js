@@ -3,24 +3,20 @@ import './messages.css'
 import db, {timestamp} from './firebase'
 import {Avatar} from '@material-ui/core'
 import { BrowserRouter as Router,Switch, Route, NavLink,Link} from 'react-router-dom';
-import Chatbox from './Chatbox'
 import InputEmoji from "react-input-emoji";
 import firebase from 'firebase'
 import { MdClose } from 'react-icons/md';
 import MessageList from './MessageList'
 import Comp from './Comp'
 import MessageComp from './MessageComp'
-import MessageCompR from './MessageCompR'
-import moment from 'moment'
-
+import { BsCalendar } from 'react-icons/bs';
+import { storage} from "./firebase";
+import { BsImage } from 'react-icons/bs';
 
 const Messages = ({name, avatar, email}) => {
 
-    const [Chatdata, setChatData]=useState([])
     const [messages, setMessages]=useState('')
-    const [Avtr, setAvatr]=useState(avatar)
     const [text, setText]=useState([])
-    const [recieve, setRecieve]=useState([])
     const [search, setSearch]=useState('')
     const [SEND, setSEND]=useState('')
     const [from, setFrom]=useState('')
@@ -28,6 +24,11 @@ const Messages = ({name, avatar, email}) => {
     const [users, setUsers]=useState([])
     const [open, setOpen]=useState(false)
     const [chat, setChat]=useState(false)
+    const [Focus, setFocus]=useState(false)
+    const [media, setMedia] = useState(" ");
+    const [mediaUrl, setMediaUrl] = useState("");
+    const [error, setError] = useState("");
+    const [progress, setProgress] = useState(0);
 
 
     useEffect(() => {
@@ -50,33 +51,76 @@ const Messages = ({name, avatar, email}) => {
         getMsg()
     }, [])
 
-
     useEffect(() => {
-      const ChatData=[...text,...recieve]
-      setChatData(ChatData)
-      
-    }, [text,recieve])
 
- 
+      var objDiv = document.getElementById("textid");
+      objDiv.scrollTop = objDiv.scrollHeight;
+
+      var element = document.getElementById("textid");
+      element.scrollTop = element.scrollHeight - element.clientHeight;
+
+    }, [chat,text])
+    useEffect(() => {
+  
+
+   
+      if(!mediaUrl) return;
+        
+      storageRef.put(media).on(
+        "state_changed",
+        (snap) => {
+          let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
+          setProgress(percentage);
+        },
+        (err) => {
+          setError(err);
+        },
+        async () => {
+    
+          db.collection("messages").doc(SEND).collection("chat").add({
+            time: firebase.firestore.FieldValue.serverTimestamp(),
+            image: mediaUrl,
+            sender: name,
+            reciever:SEND,
+            avatar:avatar,
+            email:email,
+          });
+
+          db.collection("messages").doc(name).collection("chat").add({
+            time: firebase.firestore.FieldValue.serverTimestamp(),
+            image: mediaUrl,
+            sender: name,
+            reciever:SEND,
+            avatar:avatar,
+            email:email,
+          });
+          setMediaUrl("")
+        }
+        
+      );
+     }, [mediaUrl])
+
+    
+      const storageRef = storage.ref(`images/${media.name}`);
 
     const send = () => {
       if(!messages) return
   
-      db.collection('messages').doc(SEND).collection('recieved').add({
+      db.collection('messages').doc(SEND).collection('chat').add({
         message: messages,
         sender: name,
         reciever:SEND,
-        avatar:avt,
+        avatar:avatar,
         email:email,
         time: firebase.firestore.FieldValue.serverTimestamp(),   
       });
 
 
-      db.collection('messages').doc(name).collection('sent').add({
+      db.collection('messages').doc(name).collection('chat').add({
         message: messages,
         sender: name,
         reciever:SEND,
-        avatar:avt,
+        avatar:avatar,
         email:email,
         time: firebase.firestore.FieldValue.serverTimestamp(),
         
@@ -89,7 +133,7 @@ const Messages = ({name, avatar, email}) => {
     
     function getMsg(){
 
-        db.collection("messages").doc(name).collection('recieved').orderBy("time", "asc").onSnapshot((snapshot) =>
+        db.collection("messages").doc(name).collection('chat').orderBy("time", "asc").onSnapshot((snapshot) =>
         
         setText(snapshot.docs.map((doc) =>(
           {
@@ -98,18 +142,8 @@ const Messages = ({name, avatar, email}) => {
           }
         )))
       ); 
-
-        db.collection("messages").doc(name).collection('sent').orderBy("time", "asc").onSnapshot((snapshot) =>
-        
-        setRecieve(snapshot.docs.map((doc) =>(
-          {
-            id: doc.id,
-            data: doc.data(),               
-          }
-        )))
-      ); 
     }
-
+   
 
  
     function getUsers(){
@@ -121,7 +155,6 @@ const Messages = ({name, avatar, email}) => {
         }
         )))
     ); 
-    console.log(Chatdata)
 
     }
 
@@ -140,12 +173,28 @@ const Messages = ({name, avatar, email}) => {
             }     
     }
 
+    const filehandler = async (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        let reader = new FileReader();
+  
+        await setMedia(file);
+        reader.onloadend = () => {
+          setMediaUrl(reader.result);
+        };
+  
+        reader.readAsDataURL(file);
+      } else {
+        setMedia(null);
+        setError("Please select an image file");
+      }
+    };
+     
 
-
-     function setchat(avatarr){
+     function setchat(a){
         setOpen(!open)
         setChat(true)
-        setAvatar(avatarr)
+        setAvatar(a)
     }
 
     function closemodal(){
@@ -153,16 +202,19 @@ const Messages = ({name, avatar, email}) => {
         setChat(false)
     }
 
-    
+
     return (
         <div className='messages'>
             <div className='flex-message'>
-
                 <div className='message-box'>
-                    <h4>Messages</h4>
-                     
+                    <h4>Messages</h4>            
                    <MessageList name={name} avatar={avatar}/>
                 </div>
+
+
+
+
+
 
                 <div className={!chat?'users-box':'hide-modal'}>
                     <h2>You don’t have a message selected</h2>     
@@ -202,37 +254,34 @@ const Messages = ({name, avatar, email}) => {
 
 
              <div className={chat?'chatbox':'hide-modal'}>
-                   <div className='wrap-chat'>
+                   <div className='wrap-chat' id='textid'>
                       <div className='chat-header'>
                           <div className='flex-message'>
                                 
                                 <h2><Avatar src={avt}/></h2>
-                                <h3>{SEND}</h3>        
+                                <h3 style={{display:'flex',flexDirection:'column'}}>{SEND} <span className='username-msgs'>{`@${SEND}_${SEND.length}`}</span></h3>        
 
                           </div>
-                          <p1 className='username-msgs'>{`@${SEND}_${14}`}</p1>
+  
                             <br/>
                             <hr style={{width:'550px'}}/>
                       </div> 
 
                       <div className='chat-middle'>
                           <div className='chat-middle-info'>          
-                             <h2>{SEND}</h2>        
+                             <h3 style={{fontWeight:'550'}}>{SEND}<span style={{fontWeight:'100', color:'grey'}}>{` @${SEND}${SEND.length}`}</span></h3>        
                              <p>This is a random bio set by the developer himself, for test purpose</p>
                              <p>Info below are fake too</p>
 
-                             <div className='flex-this'>
-                                    <p> <p1>100</p1> Following</p>
-                                    <p> <p1>1200</p1> Followers</p>
-                             </div>
-                                <p>Joined On {12}'th January 20{20}</p>
+                                <p style={{color:'grey'}}> <span><BsCalendar/></span>   Joined On {12}'th January 20{20}</p>
+                                <br/>
                           </div>
                       </div> 
                       <hr/>
                       <div className='message-body'>
-                             <hr/> 
-                             <div className='text'>                
-                                 {Chatdata.map(mes=>(  
+                            
+                             <div className='text' >                
+                                 {text.map(mes=>(  
                                   mes.data.reciever===SEND && mes.data.sender===from || mes.data.reciever===from && mes.data.sender===SEND?
                                     <MessageComp
                                     message={mes.data?.message}
@@ -242,31 +291,43 @@ const Messages = ({name, avatar, email}) => {
                                     reciever={mes.data?.reciever}
                                     name={name}
                                     avatar={mes.data.avatar}
+                                    image={mes.data.image}
                                  />
                                  :
                                  ''
-      
-
                                 ))}
                           </div>
-                    
+ 
                         </div>
-
+                     
                      </div>  
-                     <div className='pad-left'>
-                         <InputEmoji
+                     <div className={!Focus?'focused':'pad-left'}>
+                     <label htmlFor="image">
+                          <BsImage style={{ cursor: "pointer", marginTop:'10px',opacity:'.9' }} size='23px' color='#1DA1F2'/>
+                          <input
+                            type="file"
+                            onChange={filehandler}
+                            id="image"
+                            style={{ display: "none" }}
+                          />
+                    </label>
+                     <InputEmoji
+                              
                               value={messages}
                               onChange={setMessages}
                               cleanOnEnter
                               onEnter={send}
-                              placeholder="Type a message..."
+                              placeholder="Start a new message"
                               borderRadius='20'
+                              borderColor='#bfbfbf'
+                              height='80'
+                              onResize={()=>setFocus(true)}
                             /> 
                      </div>
- 
+
                  </div>  
              
- 
+
 
 
             </div>

@@ -24,7 +24,7 @@ function App() {
     setEmail(response.profileObj.email)           
     setName(response.profileObj.name)           
     setAvatar(response.profileObj.imageUrl)           
-      
+      console.log(response.profileObj)
   }
 
 
