@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/React-TwitterClone/static/css/main.ed18776c.chunk.css",
-    "main.js": "/React-TwitterClone/static/js/main.9c200af1.chunk.js",
-    "main.js.map": "/React-TwitterClone/static/js/main.9c200af1.chunk.js.map",
+    "main.css": "/React-TwitterClone/static/css/main.5be21a9c.chunk.css",
+    "main.js": "/React-TwitterClone/static/js/main.8ebd734d.chunk.js",
+    "main.js.map": "/React-TwitterClone/static/js/main.8ebd734d.chunk.js.map",
     "runtime-main.js": "/React-TwitterClone/static/js/runtime-main.f761ba21.js",
     "runtime-main.js.map": "/React-TwitterClone/static/js/runtime-main.f761ba21.js.map",
     "static/css/2.3837f44f.chunk.css": "/React-TwitterClone/static/css/2.3837f44f.chunk.css",
-    "static/js/2.0fc8aa40.chunk.js": "/React-TwitterClone/static/js/2.0fc8aa40.chunk.js",
-    "static/js/2.0fc8aa40.chunk.js.map": "/React-TwitterClone/static/js/2.0fc8aa40.chunk.js.map",
+    "static/js/2.bcb0111c.chunk.js": "/React-TwitterClone/static/js/2.bcb0111c.chunk.js",
+    "static/js/2.bcb0111c.chunk.js.map": "/React-TwitterClone/static/js/2.bcb0111c.chunk.js.map",
     "static/js/3.87dd8ba9.chunk.js": "/React-TwitterClone/static/js/3.87dd8ba9.chunk.js",
     "static/js/3.87dd8ba9.chunk.js.map": "/React-TwitterClone/static/js/3.87dd8ba9.chunk.js.map",
     "index.html": "/React-TwitterClone/index.html",
     "static/css/2.3837f44f.chunk.css.map": "/React-TwitterClone/static/css/2.3837f44f.chunk.css.map",
-    "static/css/main.ed18776c.chunk.css.map": "/React-TwitterClone/static/css/main.ed18776c.chunk.css.map",
-    "static/js/2.0fc8aa40.chunk.js.LICENSE.txt": "/React-TwitterClone/static/js/2.0fc8aa40.chunk.js.LICENSE.txt",
+    "static/css/main.5be21a9c.chunk.css.map": "/React-TwitterClone/static/css/main.5be21a9c.chunk.css.map",
+    "static/js/2.bcb0111c.chunk.js.LICENSE.txt": "/React-TwitterClone/static/js/2.bcb0111c.chunk.js.LICENSE.txt",
     "static/media/aa.14327386.jpg": "/React-TwitterClone/static/media/aa.14327386.jpg",
     "static/media/tt.4882770d.png": "/React-TwitterClone/static/media/tt.4882770d.png"
   },
   "entrypoints": [
     "static/js/runtime-main.f761ba21.js",
     "static/css/2.3837f44f.chunk.css",
-    "static/js/2.0fc8aa40.chunk.js",
-    "static/css/main.ed18776c.chunk.css",
-    "static/js/main.9c200af1.chunk.js"
+    "static/js/2.bcb0111c.chunk.js",
+    "static/css/main.5be21a9c.chunk.css",
+    "static/js/main.8ebd734d.chunk.js"
   ]
 }
