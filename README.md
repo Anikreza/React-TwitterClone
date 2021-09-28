@@ -8,3 +8,5 @@ Notification panel is fully functional, and new notifications will pop up on the
 
 You have the privillege of deleting your posts as well.
 
+The app is mobile friendly, so you can feel free to switch devices. 
+
