@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import firebase from 'firebase'
 import moment from 'moment'
-import db, {timestamp} from './firebase'
+import db, {timestamp} from '../../Database/firebase'
 import {Avatar} from '@material-ui/core'
 
 const MessageList = ({name, avatar, send}) => {
@@ -54,7 +54,8 @@ const MessageList = ({name, avatar, send}) => {
                         <div>
                           
                           <p>{text[text.length-1]?.data.message}</p>
-                          <Avatar src={text[i]?.data.avatar}/>
+                          <p>{sent[i]?.data.sender} </p>
+                          <Avatar src={text[text.length-1]?.data.avatar}/>
 
                         </div>
                            :

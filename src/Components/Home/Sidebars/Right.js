@@ -1,5 +1,5 @@
 import React from 'react'
-import './Right.css'
+import '../../../Style/Right.css'
 import { GoogleLogout } from 'react-google-login';
 import {
     TwitterTimelineEmbed,

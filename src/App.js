@@ -1,15 +1,15 @@
-import './App.css';
+import './Style/App.css';
 import React, {useState,useRef, useEffect} from "react";
-import Sidebar from './Sidebar';
-import Feed from './Feed';
-import Right from './Right';
-import Notification from './Notification';
+import Sidebar from './Components/Home/Sidebars/Sidebar';
+import Feed from './Components/Home/Feed/Feed';
+import Right from './Components/Home/Sidebars/Right';
+import Notification from './Components/Notification/Notification';
 import {GoogleLogin} from 'react-google-login'
-import db from './firebase'
-import a from './tt.png'
+import db from './Database/firebase'
+import a from './Images/tt.png'
 import { ImTwitter } from 'react-icons/im';
 import { BrowserRouter as Router,Switch, Route} from 'react-router-dom';
-import Messages from './Messages';
+import Messages from './Components/Messages/Messages';
 
 
 function App() {

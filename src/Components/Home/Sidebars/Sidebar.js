@@ -1,5 +1,5 @@
 import React,  {useEffect, useState} from "react";
-import "./Sidebar.css";
+import "../../../Style/Sidebar.css";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import SidebarOption from "./SidebarOption";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
@@ -18,7 +18,7 @@ import PureModal from 'react-pure-modal';
 import 'react-pure-modal/dist/react-pure-modal.min.css';
 import SidebarOptionNotification from "./SidebarOptionNotification";
 import { BrowserRouter as Router,Switch, Route, NavLink,Link} from 'react-router-dom';
-import db, {timestamp} from './firebase'
+import db, {timestamp} from '../../../Database/firebase'
 
 
 
@@ -106,7 +106,7 @@ function Sidebar({name, avatar}) {
       </Button>
 
       <div onClick={() => setModal(true)} className='sidebar-bottom'>
-      <Avatar src={avatar}/> 
+      <h2><Avatar src={avatar}/> </h2>
 
         <h4>{name}<br/> <p1 className='sm'>@{name}</p1> </h4>
         
@@ -121,7 +121,7 @@ function Sidebar({name, avatar}) {
                 setModal(false);
                 return true;
                }}>
-                 <div style={{display:'flex'}}>
+                 <div className='bottom-div'>
                  <Avatar src={avatar}/>
                  <h4 style={{paddingLeft:'8px'}}>{name}<br/> <p1 className='sm'>@{name}</p1> </h4>
                  </div>

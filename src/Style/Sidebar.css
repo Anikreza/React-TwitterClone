@@ -69,3 +69,34 @@
   opacity:1;
   cursor: pointer;
 }
+
+
+
+@media screen and (max-width: 800px){
+
+.sidebar-bottom h4{
+  display: none;
+}
+.sidebar-bottom h2{
+  display: none;
+}
+
+.logout{
+
+  opacity: .7;
+  height: 10px;
+
+}
+.logout-bottom{
+  margin-left: 0vw;
+}
+.sidebar__twitterIcon {
+  margin-left: 0px;
+}
+.sidebar {
+  border-right:hidden;
+  flex: 1;
+  padding-left: 0px;
+  padding-right: 8px;
+}
+}

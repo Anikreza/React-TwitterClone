@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react'
-import './Tweetbox.css'
-import a from './aa.jpg'
+import '../../Style/Tweetbox.css'
+import a from '../../Images/aa.jpg'
 import {Avatar, Button} from '@material-ui/core'
 import { GrEmoji } from 'react-icons/gr';
 import { AiOutlineFileGif } from 'react-icons/ai';
@@ -8,8 +8,8 @@ import { BiPoll } from 'react-icons/bi';
 import { BsImage } from 'react-icons/bs';
 import {MdSchedule } from 'react-icons/md';
 import {ImCross } from 'react-icons/im';
-import db from './firebase'
-import {storage, timestamp} from './firebase'
+import db from '../../Database/firebase'
+import {storage, timestamp} from '../../Database/firebase'
 import firebase from 'firebase';
 import TextareaAutosize from 'react-textarea-autosize';
 import { BounceLoader, BeatLoader, BarlLoader } from 'react-spinners'
@@ -126,12 +126,12 @@ function Tweetbox ({avatar, name}) {
 
                    
                  <div className={image?'show-image':'hdn'}>
-                    <img src={url}/>  
+                    <img className='tobeupoaledimage' src={url}/>  
                  </div>
 
                  
-                <div className='tweetbox-ico'> 
-                <label ref={re}  htmlFor="fileinput">  <BsImage   size={25} style={{cursor:"pointer"}}/> </label>                        
+                <div className='tweetbox-icon'> 
+                <label ref={re}  htmlFor="fileinput">  <BsImage   size={20} style={{cursor:"pointer"}}/> </label>                        
                 <input         
                      onChange={filehandler}
                      className="tweetBox-imageInput"
@@ -139,10 +139,10 @@ function Tweetbox ({avatar, name}) {
                      type="file"
                      style={{display:"none"}}        
                 />                                                 
-                <AiOutlineFileGif size={25}/>
-                <BiPoll size={25} />
-                <GrEmoji size={25}/>
-                <MdSchedule size={25}/>
+                <AiOutlineFileGif size={20}/>
+                <BiPoll size={20} />
+                <GrEmoji size={20}/>
+                <MdSchedule size={20}/>
                
                 </div>                 
                 <Button disabled={tweet || image? disabled:!disabled} onClick={postTweet} className={tweet || image?'tweetbox-button-glow':'tweetbox-button'}> Tweet</Button>

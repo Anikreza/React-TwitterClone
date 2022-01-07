@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from "react";
-import './Notification.css'
-import db, {timestamp} from './firebase'
+import '../../Style/Notification.css'
+import db, {timestamp} from '../../Database/firebase'
 import TwitterIcon from "@material-ui/icons/Twitter";
 import { BounceLoader, BeatLoader, BarlLoader } from 'react-spinners'
 import moment from 'moment'

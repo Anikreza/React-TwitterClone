@@ -106,3 +106,28 @@ a{
     width: 100px;
     top:1px;
 }
+@media screen and (max-width: 800px){
+    .notification p{
+        margin-top: 20px;
+        margin-left: 10px;
+        min-width: 50vw;
+        font-size: 12px;
+    }
+    .notification h2{
+        margin-top:3px;
+        margin-left:10px;
+        font-size: 40px;
+    }
+    .lefth{
+        font-size: 15px;
+        padding-left: 90px;
+        padding-top: 10px;
+        padding-bottom: 5px;
+    }
+    .righth{
+        font-size: 15px;
+        padding-right: 110px;
+        padding-bottom: 5px;
+        padding-top: 10px;
+    }
+}

@@ -15,14 +15,19 @@
   white-space: pre-line;
 }
 
-.tweetbox-ico{
+.tweetbox-icon{
+
     display: flex;
+    margin-left: 13%;
+    margin-top: -20px;
+    font-size: 14px;
     color: var(--twitter-color);
     padding:0px;
-    margin-left: 14%;
-    padding-right: 10px;
     max-width: 30%;
-    justify-content: space-between;
+    height: 0px;
+    
+    opacity: .7;
+    justify-content: space-around;
 }
 
 .tweetboxInput{
@@ -124,7 +129,47 @@
 .hdn{
     display: none;
 }
+.tobeupoaledimage{
+max-width: 100%;
+}
 
+
+@media screen and (max-width: 800px){
+    .tweetbox-icon{
+
+        display: flex;
+        margin-left: 28%;
+        margin-top: -20px;
+        font-size: 14px;
+        color: var(--twitter-color);
+        padding:0px;
+        max-width: 40%;
+        height: 0px;
+        opacity: .7;
+        justify-content: space-between;
+     
+    }
+    
+    .tweetbox-button{
+        width: 56px;
+        font-size: 12px !important;
+        height: 34px !important;
+    }
+    
+    .tweetboxInput{
+        display: flex;
+        padding: 10px;
+    }
+
+    .tweetboxInput>textarea{
+        font-size: 18px;
+    }
+
+    .tobeupoaledimage{
+        max-width: 70%;
+        max-height: 130px;
+    }
+}
 
 
 

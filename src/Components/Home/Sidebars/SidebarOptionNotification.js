@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from "react";
-import "./SidebarOption.css";
-import db, {timestamp} from './firebase'
+import "../../../Style/SidebarOption.css";
+import db, {timestamp} from '../../../Database/firebase'
 
 
 function SidebarOptionNotification({ active, text, Icon,name,clearnoti }) {

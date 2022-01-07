@@ -116,3 +116,9 @@
     font-size: larger;
   }
 
+  @media screen and (max-width: 800px) {
+    .post-header-description p{
+      font-size: 13px;
+    }
+  }
+

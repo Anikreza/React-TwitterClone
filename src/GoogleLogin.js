@@ -1,8 +1,8 @@
 import React from 'react'
-import './Login.css'
+import './Style/Login.css'
 import {GoogleLogin} from 'react-google-login'
 
-const Login = () => {
+const GoogleLogin = () => {
     return (
         <div>
               <GoogleLogin  ref={ref}
@@ -16,4 +16,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default GoogleLogin

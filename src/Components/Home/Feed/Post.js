@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import './Post.css'
+import '../../../Style/Post.css'
 import {Avatar} from '@material-ui/core'
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import RepeatIcon from "@material-ui/icons/Repeat";
@@ -7,9 +7,9 @@ import FavoriteTwoToneIcon from '@material-ui/icons/FavoriteTwoTone';
 import PublishIcon from "@material-ui/icons/Publish";
 import { GoVerified } from 'react-icons/go';
 import { FiDelete } from 'react-icons/fi';
-import Modal from './Modal'
-import ComBox from './ComBox'
-import db, { timestamp } from './firebase'
+import Modal from '../../Comments/Modal'
+import ComBox from '../../Comments/ComBox'
+import db, { timestamp } from '../../../Database/firebase'
 import moment from 'moment'
 import { SettingsBackupRestore } from '@material-ui/icons'
 import firebase from 'firebase'

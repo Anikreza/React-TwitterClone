@@ -1,5 +1,5 @@
 import React, {useState,useRef, useEffect} from 'react'
-import db, {timestamp} from './firebase'
+import db, {timestamp} from '../../../Database/firebase'
 import firebase from 'firebase'
 import {Avatar} from '@material-ui/core'
 
